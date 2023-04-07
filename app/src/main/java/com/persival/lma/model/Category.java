@@ -45,6 +45,7 @@ public class Category extends BaseObservable {
 
     public void setCategoryName(String categoryName) {
         this.categoryName = categoryName;
+        notifyPropertyChanged(BR.categoryName);
     }
 
     @Bindable
@@ -54,5 +55,6 @@ public class Category extends BaseObservable {
 
     public void setCategoryDescription(String categoryDescription) {
         this.categoryDescription = categoryDescription;
+        notifyPropertyChanged(BR.categoryDescription);
     }
 }
