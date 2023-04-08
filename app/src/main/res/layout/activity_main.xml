@@ -9,6 +9,7 @@
         <variable
             name="clickHandlers"
             type="com.persival.lma.MainActivity.MainActivityClickHandlers" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,9 +20,10 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
-            android:onClick="@{clickHandlers::onFabClicked}"
+            android:onClick="@{clickHandlers::onFABClicked}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -34,9 +36,9 @@
             android:id="@+id/secondary_layout"
             layout="@layout/content_main"
             bind:secondarySpinnerAdapter="@{spinnerAdapter}"
-            bind:secondaryClickHandlers="@{clickHandlers}"/>
+            bind:secondaryClickHandler="@{clickHandlers}"/>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
-

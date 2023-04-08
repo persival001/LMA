@@ -21,7 +21,7 @@ public class CourseShopRepository {
     public CourseShopRepository(Application application) {
         CourseDatabase courseDatabase = CourseDatabase.getInstance(application);
         categoryDAO = courseDatabase.categoryDAO();
-        courseDAO   = courseDatabase.courseDAO();
+        courseDAO = courseDatabase.courseDAO();
     }
 
     public LiveData<List<Category>> getCategories() {
@@ -33,7 +33,7 @@ public class CourseShopRepository {
     }
 
 
-    private void insertCategory(Category category){
+    private void insertCategory(Category category) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
 
@@ -48,7 +48,7 @@ public class CourseShopRepository {
 
     }
 
-    public void insertCourse(Course course){
+    public void insertCourse(Course course) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
         executor.execute(new Runnable() {
@@ -64,7 +64,7 @@ public class CourseShopRepository {
 
     }
 
-    public void deleteCategory(Category category){
+    public void deleteCategory(Category category) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
         executor.execute(new Runnable() {
@@ -79,7 +79,7 @@ public class CourseShopRepository {
         });
     }
 
-    public void deleteCourse(Course course){
+    public void deleteCourse(Course course) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
         executor.execute(new Runnable() {
@@ -94,7 +94,7 @@ public class CourseShopRepository {
         });
     }
 
-    public void updateCategory(Category category){
+    public void updateCategory(Category category) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
 
@@ -110,7 +110,7 @@ public class CourseShopRepository {
         });
     }
 
-    public void updateCourse(Course course){
+    public void updateCourse(Course course) {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
 
