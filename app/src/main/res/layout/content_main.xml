@@ -1,30 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <data>
         <variable
             name="secondarySpinnerAdapter"
             type="android.widget.ArrayAdapter" />
+
         <variable
             name="secondaryClickHandler"
             type="com.persival.lma.MainActivity.MainActivityClickHandlers" />
     </data>
 
+
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
         android:orientation="vertical"
-        tools:showIn="@layout/activity_main">
+        tools:showIn="@layout/activity_main"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <Spinner
-            android:id="@+id/spinner"
             android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             app:adapter="@{secondarySpinnerAdapter}"
-            android:onItemSelected="@{secondaryClickHandler::onSelectItem"/>
+            android:onItemSelected="@{secondaryClickHandler::onSelectItem}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:layout_margin="8dp"
+            android:id="@+id/recyclerView"/>
 
     </LinearLayout>
+
 </layout>

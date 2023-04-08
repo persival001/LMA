@@ -13,11 +13,14 @@ import com.persival.lma.model.CourseShopRepository;
 import java.util.List;
 
 public class MainActivityViewModel extends AndroidViewModel {
+
     // Repository
     private CourseShopRepository repository;
-    // LiveData
+
+    // Live Data
     private LiveData<List<Category>> allCategories;
     private LiveData<List<Course>> coursesOfSelectedCategory;
+
 
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
@@ -45,4 +48,6 @@ public class MainActivityViewModel extends AndroidViewModel {
     public void deleteCourse(Course course) {
         repository.deleteCourse(course);
     }
+
+
 }

@@ -12,6 +12,7 @@ import java.util.List;
 @Dao
 public interface CategoryDAO {
 
+
     @Insert
     void insert(Category category);
 

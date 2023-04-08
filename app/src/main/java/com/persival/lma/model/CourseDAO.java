@@ -12,6 +12,7 @@ import java.util.List;
 @Dao
 public interface CourseDAO {
 
+
     @Insert
     void insert(Course course);
 
@@ -21,9 +22,12 @@ public interface CourseDAO {
     @Delete
     void delete(Course course);
 
+
     @Query("SELECT * FROM course_table")
     LiveData<List<Course>> getAllCourses();
 
-    @Query("SELECT * FROM course_table WHERE category_id ==:categoryId")
+    @Query("SELECT * FROM course_table WHERE category_id==:categoryId")
     LiveData<List<Course>> getCourses(int categoryId);
+
+
 }

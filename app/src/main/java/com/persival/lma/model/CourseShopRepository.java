@@ -12,17 +12,16 @@ import java.util.concurrent.Executors;
 
 public class CourseShopRepository {
 
-    private CourseDAO courseDAO;
     private CategoryDAO categoryDAO;
+    private CourseDAO courseDAO;
 
     private LiveData<List<Category>> categories;
-
     private LiveData<List<Course>> courses;
 
     public CourseShopRepository(Application application) {
         CourseDatabase courseDatabase = CourseDatabase.getInstance(application);
-        courseDAO = courseDatabase.courseDAO();
         categoryDAO = courseDatabase.categoryDAO();
+        courseDAO   = courseDatabase.courseDAO();
     }
 
     public LiveData<List<Category>> getCategories() {
@@ -33,86 +32,96 @@ public class CourseShopRepository {
         return courseDAO.getCourses(categoryId);
     }
 
-    private void insertCategory(Category category) {
+
+    private void insertCategory(Category category){
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
 
         executor.execute(new Runnable() {
             @Override
             public void run() {
+
                 // Inserting Categories
                 categoryDAO.insert(category);
-
             }
         });
+
     }
 
-    public void insertCourse(Course course) {
+    public void insertCourse(Course course){
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
-
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                // Inserting Courses
+
+                // Inserting Categories
                 courseDAO.insert(course);
 
+                // Do after background execution is done - post execution
             }
         });
+
     }
 
-    public void deleteCategory(Category category) {
+    public void deleteCategory(Category category){
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
-
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                // Deleting Categories
+
+                // Inserting Categories
                 categoryDAO.delete(category);
 
+                // Do after background execution is done - post execution
             }
         });
     }
 
-    public void deleteCourse(Course course) {
+    public void deleteCourse(Course course){
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
-
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                // Deleting Courses
+
+                // Inserting Categories
                 courseDAO.delete(course);
 
+                // Do after background execution is done - post execution
             }
         });
     }
 
-    public void updateCategory(Category category) {
+    public void updateCategory(Category category){
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
 
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                // Updating Categories
+
+                // Inserting Categories
                 categoryDAO.update(category);
 
+                // Do after background execution is done - post execution
             }
         });
     }
 
-    public void updateCourse(Course course) {
+    public void updateCourse(Course course){
         ExecutorService executor = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
 
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                // Updating Courses
+
+                // Inserting Categories
                 courseDAO.update(course);
 
+                // Do after background execution is done - post execution
             }
         });
     }

@@ -2,21 +2,25 @@ package com.persival.lma.model;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.library.baseAdapters.BR;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import com.persival.lma.BR;
 
 @Entity(tableName = "categories_table")
 public class Category extends BaseObservable {
+
     @PrimaryKey(autoGenerate = true)
     private int id;
+
     @ColumnInfo(name = "category_name")
     private String categoryName;
+
     @ColumnInfo(name = "category_description")
     private String categoryDescription;
+
 
     @Ignore
     public Category() {
@@ -56,5 +60,11 @@ public class Category extends BaseObservable {
     public void setCategoryDescription(String categoryDescription) {
         this.categoryDescription = categoryDescription;
         notifyPropertyChanged(BR.categoryDescription);
+    }
+
+
+    @Override
+    public String toString() {
+        return this.categoryName;
     }
 }
